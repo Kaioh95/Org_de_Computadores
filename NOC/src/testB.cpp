@@ -144,11 +144,11 @@ SC_MODULE(testB){
 
 				tLin_data = "0000100011";
 				tLin_val = 0;
-				tLout_ret = 1;
+				tLout_ret = 0;
 
 				tNin_data = "0010100000";
 				tNin_val = 1;
-				tNout_ret = 0;
+				tNout_ret = 1;
 
 				tEin_data = "0000001010";
 				tEin_val = 0;
@@ -170,7 +170,7 @@ SC_MODULE(testB){
 				tLout_ret = 0;
 
 				tNin_data = "0010100000";
-				tNin_val = 1;
+				tNin_val = 0;
 				tNout_ret = 1;
 
 				tEin_data = "0000001010";

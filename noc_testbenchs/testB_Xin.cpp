@@ -55,10 +55,10 @@ SC_MODULE(testB){
 		for(int i = 0; i<32; i++){
 			if(i>=4 && i<6){
 				trst = 0;
-				tin_data = "1010101010";
-				tin_val = 0;
-				tx_rd = "0100";
-				tx_gnt = "0100";
+				tin_data = "0100010010";
+				tin_val = 1;
+				tx_rd = "0001";
+				tx_gnt = "0001";
 				tx_Lidle = 0;
 				tx_Nidle = 0;
 				tx_Eidle = 0;
@@ -67,10 +67,10 @@ SC_MODULE(testB){
 			}
 			if(i>=8 && i<10){
 				trst = 0;
-				tin_data = "1010101010";
-				tin_val = 1;
-				tx_rd = "0100";
-				tx_gnt = "0100";
+				tin_data = "0100010010";
+				tin_val = 0;
+				tx_rd = "0001";
+				tx_gnt = "0001";
 				tx_Lidle = 0;
 				tx_Nidle = 0;
 				tx_Eidle = 0;
@@ -92,7 +92,7 @@ SC_MODULE(testB){
 			if(i>=16 && i<18){
 				trst = 0;
 				tin_data = "1111101010";
-				tin_val = 1;
+				tin_val = 0;
 				tx_rd = "0001";
 				tx_gnt = "0001";
 				tx_Lidle = 0;
@@ -116,7 +116,7 @@ SC_MODULE(testB){
 			if(i>=25 && i<27){
 				trst = 0;
 				tin_data = "0010001000";
-				tin_val = 1;
+				tin_val = 0;
 				tx_rd = "0100";
 				tx_gnt = "0100";
 				tx_Lidle = 0;

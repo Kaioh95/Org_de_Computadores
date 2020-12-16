@@ -1,7 +1,7 @@
 #include <systemc.h>
 
 #define FIFO_TYPE "SHIFT"
-#define WIDTH 8
+#define WIDTH 10
 #define DEPTH 4
 #define LOGDEPTH 2
 #define LOGDEPTHPLUSONE 3
@@ -13,12 +13,12 @@
 */
 
 SC_MODULE(Fifo){
-	sc_in< sc_bv<WIDTH+2> > din;
+	sc_in< sc_bv<WIDTH> > din;
 	sc_in< bool > rd;	//Comando para ler do FIFO
 	sc_in< bool > wr;	//Comando para escrever do FIFO
 	sc_in< bool > clk, rst;
 
-	sc_out< sc_bv<WIDTH+2> > dout;
+	sc_out< sc_bv<WIDTH> > dout;
 	sc_out< bool > rok;	//FIFO tem dado para ler (não vazio)
 	sc_out< bool > wok;	//FIFO tem room para escrever (não cheio)
 
@@ -91,7 +91,7 @@ SC_MODULE(Fifo){
 			buf1 = buf1_next;
 			buf2 = buf2_next;
 			buf3 = buf3_next;
-			dout = static_cast<sc_bv<WIDTH+2>>(data_out_next);
+			dout = static_cast<sc_bv<WIDTH>>(data_out_next);
 		}
 	}
 

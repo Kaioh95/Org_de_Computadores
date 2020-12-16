@@ -8,7 +8,7 @@
 #define XID 2
 #define YID 2
 #define USE_THIS 1
-#define MODULE_ID "L"
+//#define MODULE_ID "L"
 #define DATA_WIDTH 8
 #define RIB_WIDTH 8
 #define ROUTING_TYPE "XY"
@@ -26,6 +26,7 @@
 */
 
 SC_MODULE(Xin){
+	sc_in< int > MODULE_ID;
 	sc_in< bool > clk, rst;
 	sc_in< sc_bv<DATA_WIDTH+2> > in_data;
 	sc_in< bool > in_val;
@@ -103,6 +104,7 @@ SC_MODULE(Xin){
 		d_slice0->eop(seop);
 
 		ic0 = new ic("ic0");
+		ic0->MODULE_ID(MODULE_ID);
 		ic0->rst(rst);
 		ic0->Xdest(sXdest);
 		ic0->Ydest(sYdest);

@@ -239,6 +239,12 @@ SC_MODULE(Router){
 	sc_signal< sc_bv<4> > sWx_reqo;
 	sc_signal< sc_bv<4> > sWx_roko;
 
+	sc_signal< int > MODULE_L{"MODULE_L", 0};
+	sc_signal< int > MODULE_N{"MODULE_N", 1};
+	sc_signal< int > MODULE_E{"MODULE_E", 2};
+	sc_signal< int > MODULE_S{"MODULE_S", 3};
+	sc_signal< int > MODULE_W{"MODULE_W", 4};
+
 
 	Xin *Lin;
 	Xin *Nin;
@@ -401,6 +407,7 @@ SC_MODULE(Router){
 	SC_CTOR(Router){
 
 		Lin = new Xin("Lin");
+		Lin->MODULE_ID(MODULE_L);
 		Lin->clk(clk);
 		Lin->rst(rst);
 		Lin->in_data(Lin_data);
@@ -423,6 +430,7 @@ SC_MODULE(Router){
 
 
 		Nin = new Xin("Nin");
+		Nin->MODULE_ID(MODULE_N);
 		Nin->clk(clk);
 		Nin->rst(rst);
 		Nin->in_data(Nin_data);
@@ -445,6 +453,7 @@ SC_MODULE(Router){
 
 
 		Ein = new Xin("Ein");
+		Ein->MODULE_ID(MODULE_E);
 		Ein->clk(clk);
 		Ein->rst(rst);
 		Ein->in_data(Ein_data);
@@ -467,6 +476,7 @@ SC_MODULE(Router){
 
 
 		Sin = new Xin("Sin");
+		Sin->MODULE_ID(MODULE_S);
 		Sin->clk(clk);
 		Sin->rst(rst);
 		Sin->in_data(Sin_data);
@@ -489,6 +499,7 @@ SC_MODULE(Router){
 
 
 		Win = new Xin("Win");
+		Win->MODULE_ID(MODULE_W);
 		Win->clk(clk);
 		Win->rst(rst);
 		Win->in_data(Win_data);

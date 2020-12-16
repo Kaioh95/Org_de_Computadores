@@ -1,6 +1,7 @@
 #include <systemc.h>
 
 SC_MODULE(testB){
+	sc_out< int > MODULE_ID;
 	sc_out< bool > rst;
 	// coordenadas do nó destino
 	sc_out< sc_bv<8/2> > Xdest;
@@ -26,6 +27,7 @@ SC_MODULE(testB){
 	sc_in< bool > clk;
 
 	void source(){
+		MODULE_ID.write(0);
 		rst.write(1);
 		Xdest.write(0);
 		Ydest.write(0);
@@ -40,6 +42,7 @@ SC_MODULE(testB){
 		Widle.write(0);
 		wait();
 
+		int tMODULE_ID;
 		bool trst = 0;
 		sc_bv<4> tXdest = 0;
 		sc_bv<4> tYdest = 0;
@@ -55,9 +58,10 @@ SC_MODULE(testB){
 
 		for(int i = 0; i<32; i++){
 			if(i>=4 && i<15){
+				tMODULE_ID = 0;
 				trst = 0;
-				tXdest = 3;
-				tYdest = 2;
+				tXdest = 2;
+				tYdest = 4;
 				trok = 1;
 				trd = 1;
 				tbop = 1;
@@ -69,13 +73,14 @@ SC_MODULE(testB){
 				tWidle = 0;
 			}
 			else if(i>=15 && i<22){
+				tMODULE_ID = 0;
 				trst = 0;
-				tXdest = 3;
-				tYdest = 2;
+				tXdest = 2;
+				tYdest = 4;
 				trok = 1;
 				trd = 1;
-				tbop = 1;
-				teop = 1;
+				tbop = 0;
+				teop = 0;
 				tLidle = 0;
 				tNidle = 0;
 				tEidle = 0;
@@ -83,9 +88,10 @@ SC_MODULE(testB){
 				tWidle = 0;
 			}
 			else if(i>=22 && i<26){
+				tMODULE_ID = 0;
 				trst = 0;
-				tXdest = 3;
-				tYdest = 2;
+				tXdest = 2;
+				tYdest = 4;
 				trok = 1;
 				trd = 1;
 				tbop = 0;
@@ -97,6 +103,7 @@ SC_MODULE(testB){
 				tWidle = 0;
 			}
 			else if(i>=26){
+				tMODULE_ID = 0;
 				trst = 0;
 				tXdest = 2;
 				tYdest = 4;
@@ -111,6 +118,7 @@ SC_MODULE(testB){
 				tWidle = 0;
 			}
 
+			MODULE_ID.write(tMODULE_ID);
 			rst.write(trst);
 			Xdest.write(tXdest);
 			Ydest.write(tYdest);
@@ -143,7 +151,7 @@ SC_MODULE(testB){
 			treqW = reqW.read();
 			wait();
 			
-			cout << i << ":\t" << treqL << " " << treqN << " " << treqE << " " << treqS << " " << treqW << endl;
+			cout << i << ":\t" << treqL << treqN << treqE << treqS << treqW << endl;
 		}
 
 		sc_stop();

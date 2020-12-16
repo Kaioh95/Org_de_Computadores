@@ -4,7 +4,7 @@
 
 #define XID 3
 #define YID 3
-#define MODULE_ID "L"
+//#define MODULE_ID "L"
 #define RIB_WIDTH 8
 #define ROUTING_TYPE "XY"
 #define WF_TYPE "Y_BEFORE_E"
@@ -20,6 +20,7 @@
 */
 
 SC_MODULE(ic){
+	sc_in< int > MODULE_ID;
 	sc_in< bool > clk, rst;
 
 	// coordenadas do nó destino
@@ -70,6 +71,7 @@ SC_MODULE(ic){
 		r_xy->reqW(s_reqW);
 
 		req_r = new req_reg("req_r");
+		req_r->MODULE_ID(MODULE_ID);
 		req_r->clk(clk);
 		req_r->rst(rst);
 		req_r->rok(rok);

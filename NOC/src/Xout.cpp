@@ -58,7 +58,7 @@ SC_MODULE(Xout){
 	ofc *ofc0;
 
 	void outputs(){
-		out_data.write(dout);
+		out_data.write(din);
 		x_rd.write(wok);
 		x_gnt.write(gnt);
 		x_idle.write(idle);

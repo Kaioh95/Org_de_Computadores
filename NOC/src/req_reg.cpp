@@ -1,6 +1,6 @@
 #include <systemc.h>
 
-#define MODULE_ID "L"	//identificador da porta no roteador
+//#define MODULE_ID "L"
 #define ROUTING_TYPE "XY"
 /**
 * @file req_reg.cpp
@@ -13,6 +13,7 @@
 */
 
 SC_MODULE(req_reg){
+	sc_in< int > MODULE_ID;	//0(L); 1(N); 2(E); 3(S); 4(W).
 	sc_in< bool > clk, rst;
 
 	// FIFO interface
@@ -48,7 +49,7 @@ SC_MODULE(req_reg){
 	}
 
 	// o seguinte processo implementa o registrador que determina um request
-	void m_process(){
+	void mm_process(){
 		if(rst.read()){
 			reqL = 0;
 			reqN = 0;
@@ -62,21 +63,21 @@ SC_MODULE(req_reg){
 			// é registrado.
 			if(rok.read() & bop.read() & !requesting.read()){
 				// não é registrado pelo módulo L
-				if(MODULE_ID == "L")
+				if(MODULE_ID == 0)
 					reqL = 0;
 				else
 					reqL = in_reqL.read();
 				// não é registrado pelo módulo N
-				if(MODULE_ID == "N")
+				if(MODULE_ID == 1)
 					reqN = 0;
 				else
 					reqN = in_reqN.read();
 				// não é registrado pelo módulo E, N e S.
-				if(MODULE_ID == "E")
+				if(MODULE_ID == 2)
 					reqE = 0;
 				else{
 					if(ROUTING_TYPE == "XY"){
-						if(MODULE_ID == "N" or MODULE_ID == "S")
+						if(MODULE_ID == 1 or MODULE_ID == 3)
 							reqE = 0;
 						else
 							reqE = in_reqE;
@@ -85,16 +86,16 @@ SC_MODULE(req_reg){
 						reqE = in_reqE;
 				}
 				// não é registrado pelo módulo S.
-				if(MODULE_ID == "S")
+				if(MODULE_ID == 3)
 					reqS = 0;
 				else
 					reqS = in_reqS.read();
 				// não é registrado pelo módulo W, N e S.
-				if(MODULE_ID == "W")
+				if(MODULE_ID == 4)
 					reqW = 0;
 				else{
-					if(ROUTING_TYPE == "XY"){
-						if(MODULE_ID == "N" or MODULE_ID == "S")
+					if(ROUTING_TYPE == "XY" or ROUTING_TYPE == "WF"){
+						if(MODULE_ID == 1 or MODULE_ID == 3)
 							reqW = 0;
 						else
 							reqW = in_reqW;
@@ -129,7 +130,7 @@ SC_MODULE(req_reg){
 		SC_METHOD(rqting);
 		sensitive << reqL << reqN << reqE << reqS << reqW;
 	
-		SC_METHOD(m_process);
+		SC_METHOD(mm_process);
 		sensitive << clk.pos() << rst << rok << rd << eop << requesting;
 	
 		SC_METHOD(outputs);

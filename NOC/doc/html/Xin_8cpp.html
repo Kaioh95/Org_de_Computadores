@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>NoC: Referência do Arquivo src/Xin.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">NoC
+   </div>
+   <div id="projectbrief">Roteador baseado na rede SoCIN</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definições e Macros</a> &#124;
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo Xin.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;systemc.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="ifc_8cpp.html">ifc.cpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="irs_8cpp.html">irs.cpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ic_8cpp.html">ic.cpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="Fifo_8cpp.html">Fifo.cpp</a>&quot;</code><br />
+<code>#include &quot;dout_slice.cpp&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para Xin.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="Xin_8cpp__incl.png" border="0" usemap="#src_2Xin_8cpp" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com esse arquivo:</div>
+<div class="dyncontent">
+<div class="center"><img src="Xin_8cpp__dep__incl.png" border="0" usemap="#src_2Xin_8cppdep" alt=""/></div>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definições e Macros</h2></td></tr>
+<tr class="memitem:a2fcff90d7c3b0ec3203ee5f49ab4bb33"><td class="memItemLeft" align="right" valign="top"><a id="a2fcff90d7c3b0ec3203ee5f49ab4bb33"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>XID</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a2fcff90d7c3b0ec3203ee5f49ab4bb33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63bec0253f4b2a22c2cbee86d1bedca7"><td class="memItemLeft" align="right" valign="top"><a id="a63bec0253f4b2a22c2cbee86d1bedca7"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>YID</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a63bec0253f4b2a22c2cbee86d1bedca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acef44bb73748afdec3f6d5ebbdb2dfd8"><td class="memItemLeft" align="right" valign="top"><a id="acef44bb73748afdec3f6d5ebbdb2dfd8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>USE_THIS</b>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:acef44bb73748afdec3f6d5ebbdb2dfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af087b76f9707be9d3b43ba0c782c31c3"><td class="memItemLeft" align="right" valign="top"><a id="af087b76f9707be9d3b43ba0c782c31c3"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>DATA_WIDTH</b>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:af087b76f9707be9d3b43ba0c782c31c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a896b38e53ce4d048c20d72e84102e850"><td class="memItemLeft" align="right" valign="top"><a id="a896b38e53ce4d048c20d72e84102e850"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>RIB_WIDTH</b>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a896b38e53ce4d048c20d72e84102e850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87227194672dcd8d6e15b4b29bee5ad5"><td class="memItemLeft" align="right" valign="top"><a id="a87227194672dcd8d6e15b4b29bee5ad5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>ROUTING_TYPE</b>&#160;&#160;&#160;&quot;XY&quot;</td></tr>
+<tr class="separator:a87227194672dcd8d6e15b4b29bee5ad5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e4171b0e9b51ea39622d565dac2273"><td class="memItemLeft" align="right" valign="top"><a id="a85e4171b0e9b51ea39622d565dac2273"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FC_TYPE</b>&#160;&#160;&#160;&quot;HANDSHAKE&quot;</td></tr>
+<tr class="separator:a85e4171b0e9b51ea39622d565dac2273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a401171d442a2422879f66c31c50b8f3e"><td class="memItemLeft" align="right" valign="top"><a id="a401171d442a2422879f66c31c50b8f3e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FIFO_TYPE</b>&#160;&#160;&#160;&quot;SHIFT&quot;</td></tr>
+<tr class="separator:a401171d442a2422879f66c31c50b8f3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab297050456738a4bc51658025f2521c6"><td class="memItemLeft" align="right" valign="top"><a id="ab297050456738a4bc51658025f2521c6"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FIFO_DEPTH</b>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:ab297050456738a4bc51658025f2521c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a705a57da6f35b6361a53b1de33aff1e8"><td class="memItemLeft" align="right" valign="top"><a id="a705a57da6f35b6361a53b1de33aff1e8"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>FIFO_LOG2_DEPTH</b>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a705a57da6f35b6361a53b1de33aff1e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a771d9f5c75f70554c7349397f7663b04"><td class="memItemLeft" align="right" valign="top"><a id="a771d9f5c75f70554c7349397f7663b04"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>SWITCH_TYPE</b>&#160;&#160;&#160;&quot;LOGIC&quot;</td></tr>
+<tr class="separator:a771d9f5c75f70554c7349397f7663b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ab9741d571376b8804f80235305733e93"><td class="memItemLeft" align="right" valign="top"><a id="ab9741d571376b8804f80235305733e93"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>SC_MODULE</b> (Xin)</td></tr>
+<tr class="separator:ab9741d571376b8804f80235305733e93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Modulo do canal de input </p><dl class="section author"><dt>Autor</dt><dd>Kaio Henrique de Sousa </dd></dl>
+<dl class="section since"><dt>Desde</dt><dd>30/11/2020 </dd></dl>
+</div></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
